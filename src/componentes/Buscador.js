@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { useQuery } from '../hooks/useQuery';
@@ -11,16 +10,10 @@ export function Buscador() {
     const query = useQuery();
     const busqueda = query.get("buscar");
 
-    const [ textoBuscado, setTextoBuscado ] = useState("");
     const navegacion =  useNavigate();
-
-    useEffect(() => {
-        setTextoBuscado(busqueda || "");
-    }, [busqueda]);
 
     const manejoForm = (e)=> {
         e.preventDefault();
-        navegacion("/?buscar=" + textoBuscado);
     };
 
     return(
@@ -29,12 +22,16 @@ export function Buscador() {
                 <input 
                     className={styles.input} 
                     type="text" 
-                    value={textoBuscado} 
-                    onChange={(e)=> setTextoBuscado(e.target.value.toLowerCase())} 
+                    value={busqueda || ""} 
+                    onChange={(e)=> {
+                        const valor = e.target.value.toLowerCase();
+                        navegacion("/?buscar=" + valor);
+                        
+                    }} 
                 />
-                <button className={styles.btnBuscar} type="submit">
-                    <FaSearch size={20} />
-                </button>
+                
+                <FaSearch size={20} className={styles.btnBuscar} />
+                
             </div>
         </form>
     )

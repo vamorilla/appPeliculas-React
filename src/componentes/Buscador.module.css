@@ -22,14 +22,10 @@
 
 .btnBuscar {
     position: absolute;
-    right: 0;
+    color: #d64452;
+    right: 10px;
     top: 0;
-    cursor: pointer;
     height: 100%;
     border: none;
     background: none;
-}
-
-.btnBuscar:hover{
-    background-color: #a66f75;
 }

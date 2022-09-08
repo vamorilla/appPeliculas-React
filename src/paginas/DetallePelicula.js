@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
+import { obtenerPosterPelicula } from '../utilidades/obtenerPosterPelicula';
 import styles from "./DetallePelicula.module.css";
 import { get } from '../utilidades/httpClient';
 import { Loader } from '../componentes/Loader';
@@ -27,7 +27,7 @@ export function DetallePelicula() {
     }
 
     
-    const imgUrl = "https://image.tmdb.org/t/p/w500" + pelicula.poster_path;
+    const imgUrl = obtenerPosterPelicula(pelicula.poster_path, 500);
     return(
         <div className={styles.contenedor}>
             <img 

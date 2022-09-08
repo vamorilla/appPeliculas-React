@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-
+import { obtenerPosterPelicula } from '../utilidades/obtenerPosterPelicula';
 import styles from "./PeliculaCard.module.css";
 
 
 export function PeliculaCard({pelicula}){
-    const imgUrl = "https://image.tmdb.org/t/p/w300" + pelicula.poster_path;
+    const imgUrl = obtenerPosterPelicula(pelicula.poster_path, 300);
+    
     return(
         <li className={styles.peliculaCard}>
             <Link to={"/peliculas/" + pelicula.id}>

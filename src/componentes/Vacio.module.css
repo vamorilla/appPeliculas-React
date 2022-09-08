@@ -1,0 +1,6 @@
+.vacio{
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    font-size: 2rem;
+}
