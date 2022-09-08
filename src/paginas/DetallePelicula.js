@@ -1,22 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import pelicula from "./peliculasDetalles.json";
+
 import styles from "./DetallePelicula.module.css";
 import { get } from '../utilidades/httpClient';
+import { Loader } from '../componentes/Loader';
 
 export function DetallePelicula() {
     const { idPelicula } = useParams();
-    const [pelicula, setPelicula] = useState(null);
+    const [ cargando, setCargando ] = useState(true);
+    const [ pelicula, setPelicula ] = useState(null);
 
     useEffect(()=>{
+        setCargando(true);
         get("/movie/" + idPelicula).then(datos => {
             setPelicula(datos);
+            setCargando(false);
         })
     }, [idPelicula]);
+    
+    if(cargando){
+        return <Loader />
+    }
 
     if(!pelicula){
         return null;
     }
+
     
     const imgUrl = "https://image.tmdb.org/t/p/w500" + pelicula.poster_path;
     return(

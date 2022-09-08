@@ -1,5 +1,4 @@
 import React from 'react';
-import { PeliculasGrid } from "./componentes/PeliculasGrid";
 import styles from "./App.module.css";
 import { DetallePelicula } from './paginas/DetallePelicula';
 import { PaginaDeEntrada } from './paginas/PaginaDeEntrada';

@@ -1,0 +1,35 @@
+.contenedor{
+    display: flex;
+    justify-content: center;
+}
+
+.inputBtn{
+    position: relative;
+}
+
+.input{
+    height: 30px;
+    border-radius: 5px;
+    padding: 5px 30px 5px 10px;
+    border: 1px solid white;
+}
+
+.input:focus{
+    outline: none;
+    border: 1px solid #d64452;
+    box-shadow: 0 0 4px #ae4953;
+}
+
+.btnBuscar{
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    height: 100%;
+    border: none;
+    background: none;
+}
+
+.btnBuscar:hover{
+    background-color: #a66f75;
+}
