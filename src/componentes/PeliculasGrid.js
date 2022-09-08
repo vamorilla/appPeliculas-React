@@ -23,7 +23,7 @@ export function PeliculasGrid({busqueda}){
         });
     }, [busqueda, pagina])
 
-    if(peliculas.length == 0){
+    if(!cargando && peliculas.length == 0){
         return <Vacio />
     }
 
